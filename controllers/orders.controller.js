@@ -1,11 +1,11 @@
-const { createRequest, getRequests, getRequestByPhone } = require('../services/orders.service')
+const { createOrder, getOrders, getRequestByPhone } = require('../services/orders.service')
 
 // Router: /user/request
 // Method: POST
 // Description: For users to contact the admin
-exports.handleSendRequest = async (req, res) => {
+exports.handleSendOrder = async (req, res) => {
     try {
-        const data = await createRequest(req.body)
+        const data = await createOrder(req.body)
         if (data.success === false) {
             return res.status(400).json({ success: false, message: "This user already post a request." })
         }
@@ -22,9 +22,9 @@ exports.handleSendRequest = async (req, res) => {
 // Router: /user/requests
 // Method: GET
 // Description: Get all requests
-exports.getAllRequests = async (req, res) => {
+exports.getAllOrders = async (req, res) => {
     try {
-        const data = await getRequests()
+        const data = await getOrders()
         res.status(200).json({ success: true, data })
     } catch(err) {
         console.error(`Error: ${err.message}`)
@@ -38,10 +38,10 @@ exports.getAllRequests = async (req, res) => {
 // Router: /user/requests/phone_number
 // Method: GET
 // Description: Get request by phone_number of user
-exports.getRequest = async (req, res) => {
+exports.getOrderByPhone = async (req, res) => {
     try {
         const { phone_number } = req.params
-        const data = await getRequestByPhone(phone_number)
+        const data = await getOrderByPhone(phone_number)
         res.status(200).json({ success: true, data })
     } catch(err) {
         console.error(`Error: ${err.message}`)

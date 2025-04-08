@@ -1,10 +1,10 @@
 const { Router } = require('express')
 const router = Router()
-const { handleSendRequest, getAllRequests, getRequest } = require('../controllers/orders.controller')
+const { handleSendOrder, getAllOrders, getOrderByPhone } = require('../controllers/orders.controller')
 const verifyAdminKey = require('../middleware/isAdmin')
 
-router.post('/user/request', verifyAdminKey, handleSendRequest)
-router.get('/user/requests', verifyAdminKey, getAllRequests)
-router.get('/user/request/:phone_number', verifyAdminKey, getRequest)
+router.post('/orders', verifyAdminKey, handleSendOrder)
+router.get('/orders', verifyAdminKey, getAllOrders)
+router.get('/orders/:phone_number', verifyAdminKey, getOrderByPhone)
 
 module.exports = router

@@ -1,6 +1,6 @@
 const { supabase } = require("../config/supabase");
 
-exports.createRequest = async (formData) => {
+exports.createOrder = async (formData) => {
   try {
     const { username, phone_number, organization, services, message } = formData;
 
@@ -29,7 +29,7 @@ exports.createRequest = async (formData) => {
   }
 };
 
-exports.getRequests = async () => {
+exports.getOrders = async () => {
   try {
     const { data, error } = await supabase.from("requests").select();
 
@@ -45,7 +45,7 @@ exports.getRequests = async () => {
   }
 };
 
-exports.getRequestByPhone = async (phone_number) => {
+exports.getOrderByPhone = async (phone_number) => {
   try {
     const { data, error } = await supabase
       .from("requests")
