@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(helmet())
 
 app.use('/api',
-    require('./routes/requestRoutes'),
+    require('./routes/ordersRoutes'),
     require('./routes/registerRoutes')
 )
 

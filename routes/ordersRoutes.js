@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router()
-const { handleSendRequest, getAllRequests, getRequest } = require('../controllers/userRequest.controller')
+const { handleSendRequest, getAllRequests, getRequest } = require('../controllers/orders.controller')
 const verifyAdminKey = require('../middleware/isAdmin')
 
 router.post('/user/request', verifyAdminKey, handleSendRequest)

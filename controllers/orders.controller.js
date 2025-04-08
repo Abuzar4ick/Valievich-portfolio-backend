@@ -1,4 +1,4 @@
-const { createRequest, getRequests, getRequestByPhone } = require('../services/userRequest.service')
+const { createRequest, getRequests, getRequestByPhone } = require('../services/orders.service')
 
 // Router: /user/request
 // Method: POST
