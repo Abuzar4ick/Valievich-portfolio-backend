@@ -64,3 +64,22 @@ exports.getOrderByPhone = async (phone_number) => {
     throw new Error(err.message);
   }
 };
+
+exports.deleteOrderByPhone = async (phone_number) => {
+  try {
+    const { data, error } = await supabase
+      .from("requests")
+      .delete()
+      .eq('phone_number', phone_number)
+
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      throw new Error(error.message);
+    }
+
+    return data;
+  } catch(err) {
+    console.error(`Error: ${err.message}`);
+    throw new Error(err.message);
+  }
+}
